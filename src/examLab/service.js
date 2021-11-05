@@ -5,24 +5,24 @@ async function createExam(exam) {
   return await ExamLabRepository.insertExam(exam)
 }
 
-async function getAllExams() {
-  return await ExamLabRepository.getAllExams();
-}
-
 async function getActiveExams() {
   return await ExamLabRepository.getActiveExams();
 }
 
-async function getExamById(id) {
-  return await ExamLabRepository.getExamById(id);
-}
-
-async function updateExam(exam){
-  return await ExamLabRepository.updateExam(exam);
+async function updateExam(exam, id){
+  return await ExamLabRepository.updateExam(exam, id);
 }
 
 async function deleteExam(id){
   return await ExamLabRepository.deleteExam(id);
+}
+
+async function getLabs_ExamsById(id) {
+  return await ExamLabRepository.getLabs_ExamsById(id);
+}
+
+async function getExamById(id) {
+  return await ExamLabRepository.getExamById(id);
 }
 
 //----------------------------------associates------------------------------------------//
@@ -43,18 +43,18 @@ async function doDisassociate(idLab, idExam) {
   } throw new Error("Somente é possivel desassociar um exame ativo de um laboratório ativo.")
 }
 
-async function getLabs_Exams(id) {
-  return await ExamLabRepository.getLabs_Exams(id);
+async function getLabsByExamName(name) {
+  return await ExamLabRepository.getLabsByExamName(name);
 }
 
 export default {
   createExam,
-  getAllExams,
   getActiveExams,
-  getExamById,
   updateExam,
   deleteExam,
+  getLabs_ExamsById,
+  getExamById,
   doAssociate,
   doDisassociate,
-  getLabs_Exams
+  getLabsByExamName
 }

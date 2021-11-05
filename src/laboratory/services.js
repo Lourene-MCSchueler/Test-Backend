@@ -1,34 +1,34 @@
 import LabRepository from './repository.js';
 
-async function createLab(exam) {
-  return await LabRepository.insertLab(exam);
-}
-
-async function getAllLabs() {
-  return await LabRepository.getAllLabs();
+async function createLab(lab) {
+  return await LabRepository.insertLab(lab);
 }
 
 async function getActiveLabs() {
   return await LabRepository.getActiveLabs();
 }
 
-async function getLabById(id) {
-  return await LabRepository.getLabById(id);
-}
-
-async function updateLab(exam){
-  return await LabRepository.updateLab(exam);
+async function updateLab(lab, id){
+  return await LabRepository.updateLab(lab, id);
 }
 
 async function deleteLab(id){
   return await LabRepository.deleteLab(id);
 }
 
+async function getLabs_ExamsById(id) {
+  return await LabRepository.getLabs_ExamsById(id);
+}
+
+async function getLabById(id) {
+  return await LabRepository.getLabById(id);
+}
+
 export default {
   createLab,
-  getAllLabs,
   getActiveLabs,
-  getLabById,
   updateLab,
-  deleteLab
+  deleteLab,
+  getLabs_ExamsById,
+  getLabById
 }

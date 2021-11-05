@@ -4,7 +4,8 @@ CREATE TABLE IF NOT EXISTS exams(
   type VARCHAR NOT NULL,
   status BOOLEAN DEFAULT true NOT NULL,
   created_at TIMESTAMP NOT NULL,
-  updated_at TIMESTAMP NOT NULL
+  updated_at TIMESTAMP,
+  deleted_at TIMESTAMP
 )
 
 CREATE TABLE IF NOT EXISTS labs (
@@ -13,7 +14,8 @@ CREATE TABLE IF NOT EXISTS labs (
   address VARCHAR NOT NULL,
   status BOOLEAN DEFAULT true NOT NULL,
   created_at TIMESTAMP NOT NULL,
-  updated_at TIMESTAMP NOT NULL
+  updated_at TIMESTAMP,
+  deleted_at TIMESTAMP
 )
 
 CREATE TABLE IF NOT EXISTS labs_exams (
@@ -21,7 +23,6 @@ CREATE TABLE IF NOT EXISTS labs_exams (
   exam_id INTEGER NOT NULL,
   lab_id INTEGER NOT NULL,
   created_at TIMESTAMP NOT NULL,
-  updated_at TIMESTAMP NOT NULL,
   CONSTRAINT fk_exam FOREIGN KEY (exam_id) REFERENCES exams(id),
   CONSTRAINT fk_lab FOREIGN KEY (lab_id) REFERENCES labs(id) 
 )
