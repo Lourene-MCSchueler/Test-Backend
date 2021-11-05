@@ -15,4 +15,4 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500).send({ error: err.message});
 });
 
-app.listen(3000, () => console.log('Server is running!'));
+app.listen(process.env.PORT || 5000, () => console.log('Server is running!'));
